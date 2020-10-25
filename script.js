@@ -1,6 +1,6 @@
-var cityEl = $("#city");
-var displayForecastEl = $("#display-forecast");
+var cityVar = $("#city");
 var displayWeatherEl = $("#display");
+var displayForecastEl = $("#display-forecast");
 var searchHistoryEl = $("#search-history");
 var recentCity = (localStorage.getItem("city-names") === null) ? [] : JSON.parse(localStorage.getItem("city-names"));
 
@@ -42,7 +42,7 @@ var displayWeather = function(data) {
     cityDay.append(getIcon(iconID));
     weatherDiv.append(cityDay);
 
-    var tempDiv = $("<div>").text(`Temp: ${data.main.temp} F`);
+    var tempDiv = $("<div>").text ("Temp: " + (+Math.round(data.main.temp)) + " F");
 
     weatherDiv.append(tempDiv);
 
@@ -50,7 +50,7 @@ var displayWeather = function(data) {
 
     weatherDiv.append(humidDiv);
 
-    var windDiv = $("<div>").text(`Wind Speed: ${data.wind.speed}`);
+    var windDiv = $("<div>").text ("Wind Speed: " + (+Math.round(data.wind.speed)));
 
     weatherDiv.append(windDiv);
 
@@ -90,11 +90,11 @@ var displayForecast = function(data) {
     for (let i = 0; i < data.list.length; i = i + 8) {
         var icon = data.list[i].weather[0].icon;
         var currentDay = moment.unix(data.list[i].dt).format("MM/DD/YYYY");
-        var forecastDiv = $("<div>").addClass("remover bg-primary forecast-border list-item flex-row justify-space-between align-center");
+        var forecastDiv = $("<div>").css('margin-left',20).addClass("remover bg-primary forecast-border list-item flex-row justify-space-between align-center");
         var dateDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light bold").text(currentDay);
         forecastDiv.append(dateDiv);
         dateDiv.append(getIcon(icon));
-        var tempDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text(`Temp: ${data.list[i].main.temp} F`);
+        var tempDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text ("Temp: " + (+Math.round(data.list[i].main.temp)) + " F");
         forecastDiv.append(tempDiv);
         var humidDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text(`Humidity: ${data.list[i].main.humidity}`);
         forecastDiv.append(humidDiv);
@@ -161,7 +161,7 @@ var getUVIndex = function (latitude, longitude) {
 };
 
 var saveSearch = function (city) {
-    cityEl.empty();
+    cityVar.empty();
     searchHistoryEl.empty();
 
     if(city === ""){
@@ -178,7 +178,7 @@ var saveSearch = function (city) {
         var searchCity = $("<h4>").append("Recent Cities").addClass("remover");
         searchHistoryEl.append(searchCity);
         for (var i = 0; i < recentCity.length; i++){
-            var btn = $("<btn>").addClass("btn btn-secondary remover").attr("data-topic-index", i).text(recentCity[i]);
+            var btn = $("<btn>").css('margin',10).addClass("btn btn-secondary remover").attr("data-topic-index", i).text(recentCity[i]);
             searchHistoryEl.append(btn);  
         }
     } else {
@@ -191,7 +191,7 @@ var saveSearch = function (city) {
 $(function () {
 
 $("#submit-weather").on("click", function(){
-    var city = cityEl.val().trim();
+    var city = cityVar.val().trim();
     citySearch(city);
 });
 searchHistoryEl.on("click", '.btn-secondary', function(){
