@@ -35,22 +35,22 @@ var displayWeather = function(data) {
 
     var iconID = data.weather[0].icon;
 
-    var weatherDiv = $("<div>").addClass("remover list-item flex-row justify-space-between align-center"); 
+    var weatherDiv = $("<div>"); 
 
-    var cityDay = $("<h2>").addClass("list-item flex-row justify-space-between col_sm").text(`${data.name} ${currentDate}`);
+    var cityDay = $("<h2>").text(`${data.name} ${currentDate}`);
 
     cityDay.append(getIcon(iconID));
     weatherDiv.append(cityDay);
 
-    var tempDiv = $("<div>").addClass("flex-row justify-space-between col-sm").text(`Temp: ${data.main.temp} F`);
+    var tempDiv = $("<div>").text(`Temp: ${data.main.temp} F`);
 
     weatherDiv.append(tempDiv);
 
-    var humidDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm").text(`Humidity: ${data.main.humidity}`);
+    var humidDiv = $("<div>").text(`Humidity: ${data.main.humidity}`);
 
     weatherDiv.append(humidDiv);
 
-    var windDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm").text(`Wind Speed: ${data.wind.speed}`);
+    var windDiv = $("<div>").text(`Wind Speed: ${data.wind.speed}`);
 
     weatherDiv.append(windDiv);
 
