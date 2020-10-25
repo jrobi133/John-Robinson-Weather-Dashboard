@@ -42,11 +42,11 @@ var displayWeather = function(data) {
     cityDay.append(getIcon(iconID));
     weatherDiv.append(cityDay);
 
-    var tempDiv = $("<div>").text ("Temp: " + (+Math.round(data.main.temp)) + " F");
+    var tempDiv = $("<div>").text ("Temp: " + (Math.round(data.main.temp)) + " F");
 
     weatherDiv.append(tempDiv);
 
-    var humidDiv = $("<div>").text(`Humidity: ${data.main.humidity}`);
+    var humidDiv = $("<div>").text("Humidity: " + (data.main.humidity));
 
     weatherDiv.append(humidDiv);
 
@@ -96,7 +96,7 @@ var displayForecast = function(data) {
         dateDiv.append(getIcon(icon));
         var tempDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text ("Temp: " + (+Math.round(data.list[i].main.temp)) + " F");
         forecastDiv.append(tempDiv);
-        var humidDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text(`Humidity: ${data.list[i].main.humidity}`);
+        var humidDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text("Humidity: " + (data.list[i].main.humidity));
         forecastDiv.append(humidDiv);
         displayForecastEl.append(forecastDiv);
     }
