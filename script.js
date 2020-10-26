@@ -94,7 +94,7 @@ var displayForecast = function(data) {
         var dateDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light bold").text(currentDay);
         forecastDiv.append(dateDiv);
         dateDiv.append(getIcon(icon));
-        var tempDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text ("Temp: " + (+Math.round(data.list[i].main.temp)) + " F");
+        var tempDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text ("Temp: " + (Math.round(data.list[i].main.temp)) + " F");
         forecastDiv.append(tempDiv);
         var humidDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light").text("Humidity: " + (data.list[i].main.humidity));
         forecastDiv.append(humidDiv);
