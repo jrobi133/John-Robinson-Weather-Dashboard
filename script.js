@@ -90,7 +90,7 @@ var displayForecast = function(data) {
     for (let i = 0; i < data.list.length; i = i + 8) {
         var icon = data.list[i].weather[0].icon;
         var currentDay = moment.unix(data.list[i].dt).format("MM/DD/YYYY");
-        var forecastDiv = $("<div>").css('margin-left',20).addClass("remover bg-primary forecast-border list-item flex-row justify-space-between align-center");
+        var forecastDiv = $("<div>").css('margin-left',2).addClass("remover bg-primary forecast-border list-item flex-row justify-space-between align-center");
         var dateDiv = $("<div>").addClass("list-item flex-row justify-space-between col-sm text-light bold").text(currentDay);
         forecastDiv.append(dateDiv);
         dateDiv.append(getIcon(icon));
