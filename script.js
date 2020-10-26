@@ -35,7 +35,7 @@ var displayWeather = function(data) {
 
     var iconID = data.weather[0].icon;
 
-    var weatherDiv = $("<div>"); 
+    var weatherDiv = $("<div>").addClass("remover list-item flex-row justify-space-between align-center");
 
     var cityDay = $("<h2>").text(`${data.name} ${currentDate}`);
 

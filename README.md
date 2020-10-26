@@ -11,14 +11,14 @@
 
 ## Description:
 
-This app allows the user to make a day scheduler. 
+This app allows the user to search a city and see what the current and 5 day weather forecast is. 
 
 Here is a link to the live application:
-https://jrobi133.github.io/John-Robinson-Work-Day-Scheduler/
+https://jrobi133.github.io/John-Robinson-Weather-Dashboard/
 
 ## App Usage:
 
-This app will allow user to enter work tasks to do and will save it, as time passes it will go gray current time will be red and future time will be green.
+The user enters in what city, and the app will display the current forecast.
 
 ## License Details:
 
@@ -42,3 +42,5 @@ for additional questions
 
 ![](/Assets/screenshot.PNG)
 ![](/Assets/screenshot2.PNG)
+![](/Assets/screenshot3.PNG)
+![](/Assets/screenshot4.PNG)
